@@ -1,4 +1,4 @@
-package org.example;
+package org.example.GuerraBarcos;
 
 import java.util.Scanner;
 
@@ -72,7 +72,7 @@ public class JugadorGuerra {
                 jugador2.agregarFicha();
                 jugador1.quitarFicha();
             } else {
-                System.out.println("empate");
+                System.out.println("Empate");
             }
 
             System.out.println("Marcador: " + jugador1.getNombre() + " " + jugador1.getFichas() + " - " + jugador2.getFichas() + " " + jugador2.getNombre());
