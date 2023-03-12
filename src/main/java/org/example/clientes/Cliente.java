@@ -8,9 +8,13 @@ public class Cliente {
     private int numeroCliente;
     private String nombre;
 
-    public Cliente(String nombre) {
+    public Cliente(String nombre, int numeroCliente) {
         this.nombre = nombre;
-        this.numeroCliente = ++ultimoNumeroCliente;
+        this.numeroCliente = numeroCliente;
+    }
+
+    public static int getUltimoNumeroCliente() {
+        return ultimoNumeroCliente;
     }
 
     public int getNumeroCliente() {
@@ -44,14 +48,15 @@ public class Cliente {
                 case 1:
                     System.out.println("-- Clientes --");
                     for (Cliente cliente : clientes) {
-                        System.out.printf("Cliente n.°%d [%s]% n", cliente.getNumeroCliente(), cliente.getNombre());
+                        System.out.printf("Cliente n.°%d [%s]%n", cliente.getNumeroCliente(), cliente.getNombre());
                     }
                     break;
                 case 2:
                     System.out.print("Nombre del cliente: ");
                     String nombreCliente = scanner.nextLine();
-                    Cliente cliente = new Cliente(nombreCliente);
+                    Cliente cliente = new Cliente(nombreCliente, getUltimoNumeroCliente() + 1);
                     clientes.add(cliente);
+                    ultimoNumeroCliente++;
                     System.out.printf("Cliente n.°%d [%s] creado%n", cliente.getNumeroCliente(), cliente.getNombre());
                     break;
                 case 3:
@@ -87,7 +92,7 @@ public class Cliente {
                         Cliente c = clientes.get(i);
                         System.out.printf("%d - %s%n", i + 1, c.getNombre());
                     }
-                    System.out.print("Cliente: ");
+                    System.out.print("> ");
                     int indiceCliente = scanner.nextInt() - 1;
                     Cliente clientePedido = clientes.get(indiceCliente);
 
@@ -99,12 +104,12 @@ public class Cliente {
                         Obra o = obras.get(i);
                         System.out.printf("%d - %s%n", i + 1, o.getInfo());
                     }
-                    System.out.print("Obra: ");
+                    System.out.print("> ");
                     int indiceObra = scanner.nextInt() - 1;
                     Obra obraPedido = obras.get(indiceObra);
 
                     pedido.agregarObra(obraPedido);
-                    System.out.printf("Obra %s agregada al pedido%n", obraPedido.getInfo());
+                    System.out.printf("Obra agregada al pedido%n");
                     break;
                 case 5:
                     System.out.println("-- Pedidos --");
@@ -113,7 +118,7 @@ public class Cliente {
                     }
                     break;
                 case 6:
-                    System.out.println("Hasta luego!");
+                    System.out.println("¡Vuelva pronto!");
                     break;
                 default:
                     System.out.println("Opción inválida");

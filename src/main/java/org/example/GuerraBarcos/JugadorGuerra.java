@@ -52,11 +52,11 @@ public class JugadorGuerra {
         int rondas = 1;
 
         while (jugador1.tieneFichas() && jugador2.tieneFichas()) {
-            System.out.print(jugador1.getNombre() + ", pulsa ENTER para lanzar el dado...");
+            System.out.print(jugador1.getNombre() + ", pulsa ENTER para lanzar el dado-->");
             scanner.nextLine();
             int resultadoJugador1 = jugador1.lanzarDado();
 
-            System.out.print(jugador2.getNombre() + ", pulsa ENTER para lanzar el dado...");
+            System.out.print(jugador2.getNombre() + ", pulsa ENTER para lanzar el dado-->");
             scanner.nextLine();
             int resultadoJugador2 = jugador2.lanzarDado();
 
